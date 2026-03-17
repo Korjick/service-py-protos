@@ -11,5 +11,9 @@ dependencies = [
     "protobuf==7.34.0",
 ]
 
+[tool.setuptools]
+package-dir = {"" = "service_gen"}
+
 [tool.setuptools.packages.find]
-include = ["service_gen*"]
+where = ["service_gen"]
+include = ["*"]
