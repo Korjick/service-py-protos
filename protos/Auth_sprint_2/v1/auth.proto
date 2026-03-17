@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package auth_sprint_2.v1;
+
+import "Auth_sprint_2/v1/request_context.proto";
+import "Auth_sprint_2/v1/errors.proto";
+
+service AuthService {
+  rpc VerifyToken(VerifyTokenRequest) returns (VerifyTokenResponse);
+}
+
+message VerifyTokenRequest {
+  string access_token = 1;
+  RequestContext context = 2;
+}
+
+message UserIdentity {
+  string user_id = 1;
+  repeated string roles = 2;
+  bool is_superuser = 3;
+}
+
+message VerifyTokenResponse {
+  oneof result {
+    UserIdentity user = 1;
+    Error error = 2;
+  }
+}

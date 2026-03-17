@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package auth_sprint_2.v1;
+
+message RequestContext {
+  string request_id = 1;
+  string user_agent = 2;
+  string ip_address = 3;
+}
